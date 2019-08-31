@@ -1,0 +1,59 @@
+{
+  "name": "pdf-as-a-service",
+  "version": "1.0.0",
+  "description": "Demo app showing how `puppeteer` can be used server-side to generate beautiful pdf, straight up using HTML and CSS",
+  "scripts": {
+    "compile:css": "stylus src/static/css/site.styl -o build/static/css/main.css && copyfiles build/main.css build/static/css",
+    "copy:assets": "copyfiles src/static/**/* build && mvf build/src/static build/static && rimraf build/src && npm run compile:css",
+    "copy:templates": "copyfiles src/views/**/* build/views && mvf build/views/src/views build/views && rimraf build/views/src",
+    "lint": "stylint --config .stylintrc ./src/static/css/styles && eslint ./src/**/*",
+    "lint:fix": "eslint --fix .",
+    "build": "rimraf build && babel src --out-dir build && npm run copy:assets && npm run copy:templates",
+    "start-dev": "babel-node ./src/app.js",
+    "start": "node build/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "pdf",
+    "generate-pdf-on-server",
+    "pdf-as-a-service",
+    "puppeteer"
+  ],
+  "author": "Dhruv Patel",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "7.5.5",
+    "@babel/node": "7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "7.5.5",
+    "babel-eslint": "^8.2.3",
+    "copyfiles": "^2.1.1",
+    "eslint": "^4.14.0",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-hbs": "^0.1.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.14.3",
+    "husky": "^3.0.4",
+    "movefiles": "^1.0.1",
+    "rimraf": "^3.0.0",
+    "stylint": "^2.0.0",
+    "stylint-stylish": "^1.4.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.5.5",
+    "bluebird": "^3.5.1",
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "hbs": "~4.0.1",
+    "serve-favicon": "~2.4.5",
+    "stylus": "0.54.5",
+    "winston": "^2.4.0",
+    "winston-daily-rotate-file": "^1.7.2"
+  }
+}

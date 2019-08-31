@@ -1,0 +1,16 @@
+{
+  "env": {
+    "node": true,
+    "browser": true
+  },
+  "extends": ["eslint:recommended"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "babelOptions": {
+      "configFile": "babel.config.js",
+    },
+  },
+  "rules": {}
+}

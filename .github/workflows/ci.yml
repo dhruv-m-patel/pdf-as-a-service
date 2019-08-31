@@ -1,0 +1,16 @@
+name: Continuous Integration
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: npm install, lint and build
+      run: |
+        npm install
+        npm run lint
+        npm run build

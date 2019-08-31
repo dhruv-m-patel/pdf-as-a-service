@@ -1,0 +1,11 @@
+build/
+_builds/
+src/views/**/*
+_cache/
+_projects/
+_steps/
+migrations/
+seeders/
+node_modules/
+/**/*.min.js
+/**/*.min.css
