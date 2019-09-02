@@ -30,7 +30,10 @@ export default class PdfService {
       // fs.writeFile(`${__dirname}/test.html`, pdfContent);
 
       this.logger.info('Creating browser');
-      const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
+      const browser = await puppeteer.launch({
+        headless: true,
+        args: ['–no-sandbox', '–disable-setuid-sandbox'],
+      });
       this.logger.info('Browser created');
       try {
         this.logger.info('Creating page');
