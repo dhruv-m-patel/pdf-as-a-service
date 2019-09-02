@@ -1,4 +1,5 @@
-import LanguageService from './language-service';
+import ImdbDataService from './imdb-data-service';
+import PdfService from './pdf-service';
 
 export default class ServiceFactory {
   static getLogger(req) {
@@ -9,7 +10,14 @@ export default class ServiceFactory {
     return req.app.get('mysqlClient');
   }
 
-  static getLanguageService(req) {
-    return new LanguageService(ServiceFactory.getLogger(req));
+  static getPdfService(req) {
+    return new PdfService(ServiceFactory.getLogger(req));
+  }
+
+  static getImdbDataService(req) {
+    return new ImdbDataService(
+      ServiceFactory.getLogger(req),
+      ServiceFactory.getPdfService(req),
+    );
   }
 }

@@ -1,10 +1,66 @@
-{{#if languages}}
-<h1>Languages:</h1>
-<ul>
-{{#each languages}}
-  <li>{{language}}</li>
-{{/each}}
-</ul>
-{{else}}
-Something's wrong!
-{{/if}}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IMDB Movie Data</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.v4.min.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+<body>
+<div class="container page">
+  <div class="row">
+    <div class="col-md-9">
+        <h1>IMDB Movie Data</h1>
+        <small>Movie data fetched from IMDB&apos;s home page</small>
+      </div>
+      <div class="col-md-3">
+        <form method="post" action="/pdf">
+          <br />
+          <button type="submit" class="btn btn-primary btn-lg">
+            Generate PDF
+          </button>
+        </form>
+      </div>
+    </div>
+    <br />
+    <br />
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Opening This Week</h4>
+          <hr />
+          <ul>
+            {{#openingThisWeek}}
+            <li><a href={{url}} target="_blank">{{movie}}</a></li>
+            {{/openingThisWeek}}
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h4>Coming Soon</h4>
+          <hr />
+          <ul>
+            {{#comingSoon}}
+            <li><a href={{url}} target="_blank">{{movie}}</a></li>
+            {{/comingSoon}}
+          </ul>
+        </div>
+      </div>
+      <br />
+      <br />
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Now Playing</h4>
+          <hr />
+          <ul data-json="{{json nowPlaying}}">
+            {{#nowPlaying}}
+            <li>
+              <a href={{url}} target="_blank">{{movie}}</a> ({{boxOffice}}) {{#if showtimesUrl}}<small><a href={{showtimesUrl}} target="_blank">Showtimes</a></small>{{/if}}
+            </li>
+            {{/nowPlaying}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/assets/js/bootstrap.v4.min.js"></script>
+</body>
+</html>
