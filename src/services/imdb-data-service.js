@@ -12,7 +12,7 @@ export default class ImdbDataService {
 
   async fetchImdbHomePage() {
     this.logger.info('Fetching IMDB home page...');
-    return puppeteer.launch()
+    return puppeteer.launch({ args: ['--no-sandbox'] })
       .then(browser => browser.newPage())
       .then(page => page.goto(this.imdbHomePageUrl)
         .then(() => page.content().then(html => html)));

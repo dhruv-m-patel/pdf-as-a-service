@@ -8,7 +8,7 @@
     "copy:templates": "copyfiles src/views/**/*.hbs build/views && mvf build/views/src/views build/views && rimraf build/views/src",
     "lint": "stylint --config .stylintrc ./src/static/css/styles && eslint ./src/**/*",
     "lint:fix": "eslint --fix .",
-    "build": "rimraf build && babel src --out-dir build && npm run copy:assets && npm run copy:templates",
+    "build": "heroku buildpacks:set jontewks/puppeteer && rimraf build && babel src --out-dir build && npm run copy:assets && npm run copy:templates",
     "start-dev": "stylus src/static/css/site.styl -o src/static/css/main.css && babel-node ./src/app.js",
     "start": "node build/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -54,6 +54,7 @@
     "express": "^4.16.2",
     "handlebars": "^4.1.2",
     "hbs": "~4.0.1",
+    "heroku": "^7.29.0",
     "puppeteer": "^1.19.0",
     "serve-favicon": "~2.4.5",
     "stylus": "0.54.5",
