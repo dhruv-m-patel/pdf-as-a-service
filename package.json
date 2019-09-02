@@ -53,7 +53,6 @@
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "handlebars": "^4.1.2",
-    "handlebars-layouts": "^3.1.4",
     "hbs": "~4.0.1",
     "puppeteer": "^1.19.0",
     "serve-favicon": "~2.4.5",
