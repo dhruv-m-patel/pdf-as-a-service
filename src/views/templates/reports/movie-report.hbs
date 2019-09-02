@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/assets/css/bootstrap.v4.min.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <title>PDF generated with Puppeteer</title>
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <style type="text/css">
+    @page{margin:0}body{margin:0}.sheet{margin:0;overflow:hidden;position:relative;box-sizing:border-box;page-break-after:always}body.A3 .sheet{width:297mm;height:419mm}body.A3.landscape .sheet{width:420mm;height:296mm}body.A4 .sheet{width:210mm;height:296mm}body.A4.landscape .sheet{width:297mm;height:209mm}body.A5 .sheet{width:148mm;height:209mm}body.A5.landscape .sheet{width:210mm;height:147mm}body.letter .sheet{width:216mm;height:279mm}body.letter.landscape .sheet{width:280mm;height:215mm}body.legal .sheet{width:216mm;height:356mm}body.legal.landscape .sheet{width:357mm;height:215mm}.sheet.padding-10mm{padding:10mm}.sheet.padding-15mm{padding:15mm}.sheet.padding-20mm{padding:20mm}.sheet.padding-25mm{padding:25mm}@media (min-width:805px){body{background:#e0e0e0}.sheet{background:#fff;box-shadow:0 .5mm 2mm rgba(0,0,0,.3);margin:5mm auto}}@media print{body.A3.landscape{width:420mm}body.A3,body.A4.landscape{width:297mm}body.A4,body.A5.landscape{width:210mm}body.A5{width:148mm}body.legal,body.letter{width:216mm;height:279mm}body.letter.landscape{width:280mm}body.legal.landscape{width:357mm}}
+  </style>
+  <style>@page { size: letter }</style>
+  <style type="text/css">
+    body>section.sheet-1>article{font-family:Roboto,Arial,Helvetica,sans-serif;font-size:12px;background-color:#25373a;line-height:1.5em}a{cursor:pointer;color:#337ab7;text-decoration:none}a:focus,a:hover{text-decoration:none;color:#23527c}.footer,.header{background-color:#25373a}.header .title{font-size:28px;margin-bottom:15px}.overflow-ellipsis{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block}.footer{padding:7px 15px;color:#fff;font-weight:300;height:44px}.footer img{max-height:30px}.grey-bkg,.report-body{background-color:#f3f3f4;overflow:hidden}.report-body{height:890px}.container{margin:0 auto!important}.pdf-body{margin:0;padding:0}.blue-highway{color:#46c5d5}.white{color:#fff}.content{margin:-20px 0 0 0;padding:0 20px}.uppercase{text-transform:uppercase!important}.border-radius-right-top-15{border-radius:0 15px 0 0}.padding-left-20{padding-left:20px}.padding-left-40{padding-left:40px}.padding-right-20{padding-right:20px}.padding-top-20{padding-top:20px}.table{border:0 none;border-collapse:collapse;width:100%;max-width:100%;margin-bottom:5px;text-align:center}.table-no-border tbody tr td,.table-no-border tbody tr th,table.table-no-border tbody tr td,table.table-no-border tbody tr th{border:0 none}.table>tbody>tr>td,.table>tbody>tr>th,.table>tfoot>tr>td,.table>tfoot>tr>th,.table>thead>tr>td,.table>thead>tr>th{border-top:1px solid #e7eaec;line-height:1.42857;padding:8px 4px;border-bottom:1px solid #ddd}th{font-weight:400!important}.table>tbody>tr>td,.table>thead>tr>th{text-align:center;line-height:20px}.table>thead:first-child>tr:first-child>th{border-top:0}table.table-no-border tbody{width:100%;border:0 none}.table-no-border tbody tr,table.table-no-border tbody tr{color:#131516}.table-striped tbody tr:nth-child(odd){background:#fafafa}.table-striped tbody tr:nth-child(even){background:#fff}.table>thead>tr>th{color:#10c3d5}.caret{display:inline-block;width:0;height:0;margin-left:2px;margin-top:2px;vertical-align:middle;border-top:6px dashed;border-right:6px solid transparent;border-left:6px solid transparent}.caret.positive-caret{vertical-align:middle;border-top:0;border-bottom:6px dashed;border-right:6px solid transparent;border-left:6px solid transparent}.caret.flat-caret{visibility:hidden}
+  </style>
+  <style type="text/css">
+    .page {
+      padding: 2rem;
+      line-height: 1.4em;
+    }
+
+    .footer {
+      height: auto;
+      padding: 2rem 0;
+      text-align: center;
+    }
+  </style>
+  <script src="/assets/js/bootstrap.v4.min.js"></script>
+</head>
+<body class="letter">
+  <section class="sheet-1 sheet">
+    <article>
+      <div class="report-body">
+  <div class="container page">
+    <div class="container">
+      <h1>IMDB Report</h1>
+      <small>Movie data fetched from IMDB&apos;s home page</small>
+    </div>
+    <br />
+    <br />
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          <h4>Opening This Week</h4>
+          <hr />
+          <ul>
+            {{#openingThisWeek}}
+            <li><a href={{url}} target="_blank">{{movie}}</a></li>
+            {{/openingThisWeek}}
+          </ul>
+        </div>
+        <div class="col-xs-6">
+          <h4>Coming Soon</h4>
+          <hr />
+          <ul>
+            {{#comingSoon}}
+            <li><a href={{url}} target="_blank">{{movie}}</a></li>
+            {{/comingSoon}}
+          </ul>
+        </div>
+      </div>
+      <br />
+      <br />
+      <div class="row">
+        <div class="col-xs-12">
+          <h4>Now Playing</h4>
+          <hr />
+          <ul data-json="{{json nowPlaying}}">
+            {{#nowPlaying}}
+            <li>
+              <a href={{url}} target="_blank">{{movie}}</a> ({{boxOffice}}) {{#if showtimesUrl}}<small><a href={{showtimesUrl}} target="_blank">Showtimes</a></small>{{/if}}
+            </li>
+            {{/nowPlaying}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+      <div class="footer">
+        <div class="text-right">
+          This report was generated using <a href="https://pptr.dev" target="_blank">Puppeteer</a>
+        </div>
+      </div>
+    </article>
+  </section>
+</body>
+</html>

@@ -1,5 +1,16 @@
-{{#if error.message}}
-<h1>{{error.message}}</h1>
-{{else}}
-<h1>An unexpected error occurred</h1>
-{{/if}}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Error</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.v4.min.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+<body>
+  <div class="container page">
+    {{#if message}}
+    <h1>{{message}}</h1>
+    {{else}}
+    <h1 class="text-danger">An unexpected error occurred</h1>
+    {{/if}}
+  </div>
+</body>

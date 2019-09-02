@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser';
 import winston from 'winston';
 import Logger from './lib/logger';
 import index from './routes/index';
+import { getPageHtml } from './lib/utils';
 
 global.Promise = require('bluebird').Promise;
 
@@ -47,7 +48,8 @@ app.use((err, req, res, next) => {
   }
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  const errorHtml = getPageHtml('error', err);
+  res.send(errorHtml);
 });
 
 
