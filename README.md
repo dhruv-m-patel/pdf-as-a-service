@@ -24,6 +24,3 @@ Visit http://localhost:3000 in browser
 - [Puppeteer](https://pptr.dev)
 - [Handlebars](https://handlebarsjs.com/)
 - [Paper CSS](https://www.getpapercss.com)
-
-
-**Check the Demo app live on Heroku:** https://pdf-as-a-service.herokuapp.com
